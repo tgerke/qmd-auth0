@@ -55,3 +55,10 @@ const login = async () => {
     redirect_uri: window.location.origin
   });
 };
+
+// logout
+const logout = () => {
+  auth0.logout({
+    returnTo: window.location.origin
+  });
+};
