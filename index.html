@@ -71,6 +71,16 @@ Log in
 <button id="btn-logout" disabled="true" onclick="logout()">
 Log out
 </button>
+<div id="gated-content" class="hidden">
+<p>
+You’re seeing this content because you’re currently <strong>logged in</strong>.
+</p>
+<label> Access token:
+<pre id="ipt-access-token"></pre>
+</label> <label> User profile:
+<pre id="ipt-user-profile"></pre>
+<p></p>
+</label></div>
 
 </main>
 <!-- /main column -->

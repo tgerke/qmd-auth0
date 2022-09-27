@@ -41,12 +41,28 @@ window.onload = async () => {
   }
 };
 
-// activate appropriate button
+// activate appropriate button, show gated content
 const updateUI = async () => {
   const isAuthenticated = await auth0.isAuthenticated();
 
   document.getElementById("btn-logout").disabled = !isAuthenticated;
   document.getElementById("btn-login").disabled = isAuthenticated;
+
+  // NEW - add logic to show/hide gated content after authentication
+  if (isAuthenticated) {
+    document.getElementById("gated-content").classList.remove("hidden");
+
+    document.getElementById(
+      "ipt-access-token"
+    ).innerHTML = await auth0.getTokenSilently();
+
+    document.getElementById("ipt-user-profile").textContent = JSON.stringify(
+      await auth0.getUser()
+    );
+
+  } else {
+    document.getElementById("gated-content").classList.add("hidden");
+  }
 };
 
 // redirect to the same page on login (single page app example)
