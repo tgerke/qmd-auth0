@@ -1,28 +1,15 @@
 ---
 title: "Quarto + auth0"
-format: html
+format:
+  html:
+    css: public/css/main.css
 editor: visual
 ---
 
-## Quarto
+<script src="https://cdn.auth0.com/js/auth0-spa-js/1.20/auth0-spa-js.production.js"></script>
+<script src="js/app.js"></script>
 
-Quarto enables you to weave together content and executable code into a finished document.
-To learn more about Quarto see <https://quarto.org>.
+<p>Welcome to our page!</p>
+<button id="btn-login" disabled="true" onclick="login()">Log in</button>
+<button id="btn-logout" disabled="true" onclick="logout()">Log out</button>
 
-## Running Code
-
-When you click the **Render** button a document will be generated that includes both content and the output of embedded code.
-You can embed code like this:
-
-```{r}
-1 + 1
-```
-
-You can add options to executable code like this
-
-```{r}
-#| echo: false
-2 * 2
-```
-
-The `echo: false` option disables the printing of code (only output is displayed).
